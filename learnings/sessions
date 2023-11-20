@@ -1,0 +1,24 @@
+sessions is used when you need to authenticate user for further pages as well
+
+https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Session_Management_Cheat_Sheet.md
+
+You don't know which client is sending requests brcause there's no way to find out who is sending the requests, even the
+ip address could be shared by by lot of people, that why we need login logout system
+
+cookie and session authentication is one of the ways to tell the server that 'who made the request'
+
+if the website doesnt log you out after refreshing the page then it has implemented session and cookies
+
+client is able to send info anout the authentication status by using cookie, cookie is simple key value pair
+
+web browser saves the cookie internally and sends to the server whenever the client wants to request the server
+
+session is a cookie which will timeout after sometime, it is stored in db of server because if the server stops or fails then the
+session id would still be present
+
+
+whenever the server is stopped and restarted again it loses the authentication of a user because we are using cookies, so that obvious but we dont want to do it in production.
+to refrain this, we would need to store our session in redis or maybe in database - please read scm session manager package to learn that
+cookies are not ephermal then , it wont disappear if servers restarts
+
+

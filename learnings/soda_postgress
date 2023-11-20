@@ -1,0 +1,22 @@
+soda generate fizz CreateUserTable - create the migrations
+soda migrate - implement the migrations
+soda migrate down - implement the down migrations
+soda generate fizz CreateFKForReservationsTable - to create foreign keys
+soda reset - run all down migrations and then up migrations - all the rows will get deleted - so all the dbs should be populated with earlier data
+
+
+schema migration table contains the version number
+#hashes for database will be of length 60 always
+
+dbvear is a client, you can use postico for postgress as well
+
+add_foreign_key("table_name", "field", {"ref_table_name": ["ref_column"]}, {
+    "name": "optional_fk_name",
+    "on_delete": "action", = cascade means, if someones deletes this id in ref_table then delete it in here as well
+    "on_update": "action", = if someone updates the foreign key then update the corresponding field in here as well
+})
+
+DDL - data description language
+
+
+row level data scan, when data is very large - so we use index to make search faster

@@ -1,0 +1,5 @@
+Object relational mappers - writes the query on its own
+- if you don't know sql you can use this as wrapper
+
+gorm.io - add completely new layer of complexity while interacting with the database, faster code
+upper.io/v4

@@ -1,0 +1,77 @@
+{{template "base".}} <!-- use template base, no ending point  . means use the data here *-->
+
+{{define "content"}}
+    <div class="container">
+        <!-- class is the cascadind style sheet directive, its a collection of things inside a main part of the css file that says take all the styling that I define here and apply to this class-->
+
+        <!-- id should be unique on the page-->
+        <div class="row">
+            <h1 class="text-center mt-4"> Bookings are open!!!</h1> <!-- mt = margin top 4-->
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2> Check Availability.
+                </h2>
+                <form action="/reservation" method="POST" novalidate class="needs-validation">
+                    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+                    <!-- the action is the URL where we want to send the data aznd method is the method you want to send data-->
+                    <div class="row" id="reservation-dates">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="start-date" class="form-label">Starting Date</label>
+                                <!-- for is for some id and it should match the input -->
+                                <input required type="text" class="form-control" id="start-date" name="start-date"
+                                       aria-describedby="startDateHelp" placeholder="Arrival" autocomplete="off">
+                                <!-- name attribute will be used to get the POST information in go -->
+                                <!--                            <div id="startDateHelp" class="form-text">Enter your starting date in the format DD-MM-YYYY.-->
+                                <!--                            </div>-->
+                            </div>
+                        </div>
+                        <!-- when you submit a form with get all the values will be shown in params, while in POST the data will be sent as a body also if you use get method if you press back button you'll be diected to back page but in case of post you'd get a warning that if you want to submit the form again or not-->
+
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="end-date" class="form-label">Ending Date</label>
+                                <!-- for is for some id and it should match the input -->
+                                <input required type="text" class="form-control" id="end-date" name="end-date"
+                                       aria-describedby="endDateHelp" placeholder="Departure" autocomplete="off">
+                                <!-- name attribute will be used to get the POST information in go -->
+                                <!--                            <div id="endDateHelp" class="form-text">Enter your ending date in the format DD-MM-YYYY.-->
+                                <!--                            </div>-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--                <div class="row">-->
+                    <!--                    <div class="col">-->
+                    <!--                        <div id="reservation-dates">-->
+                    <!--                            <input type="text" name="start">-->
+                    <!--                            <span>to</span>-->
+                    <!--                            <input type="text" name="end">-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                    <hr>
+                    <button type="submit" class="btn btn-primary">Search Availability</button>
+                </form>
+
+
+                <div class="row mt-4">
+                    <div class="col text-center">
+                        <a href="/contact" class="btn btn-success">Wanna know more!! Contact us.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{{end}}
+
+{{define "js"}}
+    <script>
+        const elem = document.getElementById('reservation-dates');
+        const rangepicker = new DateRangePicker(elem, {
+            format: "dd-mm-yyyy",
+            minDate: new Date(),
+        });
+    </script>
+{{end}}

@@ -1,0 +1,7 @@
+Optimistic concurrency control assumes that many transactions can
+ frequently complete without interfering
+with each other. While running, transactions use data resources without
+ acquiring locks on those resources. Before committing, each transaction
+  verifies that no other transaction has modified the data it has read.
+   If the check reveals conflicting modifications, the committing transaction
+    rolls back and can be restarted.

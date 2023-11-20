@@ -1,0 +1,9 @@
+csrf token is used to avoid csrf attacks
+this attacks takes place with the help of session cookies that are stored by a web browser whenever you login to a site for that particular site.
+now since the cookies are stored in your browser an attacker can make you submit a form unknowingly by making the form automatic submit.
+this will lead to make attacker use the form that was CSRF vulnerable to use that particular form according to your use.
+- cross site request forgery
+
+ A request is "same-site" if its target's URI's origin's registrable
+   domain is an exact match for the request's initiator's "site for
+   cookies", and "cross-site" otherwise.

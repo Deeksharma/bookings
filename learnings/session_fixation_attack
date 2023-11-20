@@ -1,0 +1,4 @@
+https://owasp.org/www-community/attacks/Session_fixation
+
+session fixation is possible is the session is not renewed every time a user logins or logouts.
+if a user logouts then the

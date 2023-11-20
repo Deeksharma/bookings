@@ -1,0 +1,3 @@
+grouping certain URL's is called subrouting and using same authentication for all of them can also be done in this case
+Setting the same matching conditions again and again can be boring, so we have a way to group several routes that share the same requirements. We call it "subrouting"
+
